@@ -8,7 +8,7 @@ ENV NGINX_VERSION 1.19.6
 WORKDIR /opt
 
 RUN apt-get update && \
-    apt-get install -y libpcre3 libpcre3-dev zlib1g-dev zlib1g build-essential git curl cmake;
+    apt-get install -y libpcre3 libpcre3-dev zlib1g-dev zlib1g build-essential git curl cmake libssl-dev;
 
 RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
     tar xvzf nginx-$NGINX_VERSION.tar.gz && \
@@ -55,6 +55,7 @@ RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
     --with-stream_realip_module \
     --with-stream_ssl_module \
     --with-stream_ssl_preread_module \
+    --with-openssl=~/openssl/
     --add-module=/opt/ngx_brotli \
     --add-module=/opt/headers-more-nginx-module \
     && make && make install;
