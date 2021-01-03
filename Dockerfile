@@ -55,7 +55,7 @@ RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
     --with-stream_realip_module \
     --with-stream_ssl_module \
     --with-stream_ssl_preread_module \
-    --with-openssl=~/openssl/
+    --with-openssl=~/openssl \
     --add-module=/opt/ngx_brotli \
     --add-module=/opt/headers-more-nginx-module \
     && make && make install;
