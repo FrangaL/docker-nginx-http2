@@ -57,7 +57,7 @@ RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
     --with-stream_ssl_preread_module \
     --add-module=/opt/ngx_brotli \
     --add-module=/opt/headers-more-nginx-module \
-    make && make install;
+    && make && make install;
 
 FROM debian:buster-slim
 
