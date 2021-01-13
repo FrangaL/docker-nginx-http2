@@ -59,7 +59,7 @@ RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
     --add-module=/opt/headers-more-nginx-module \
     && make && make install;
 
-FROM debian:buster-slim
+FROM debian:sid-slim
 
 COPY --from=builder /usr/sbin/nginx /usr/sbin/
 COPY --from=builder /etc/nginx/ /etc/nginx/
